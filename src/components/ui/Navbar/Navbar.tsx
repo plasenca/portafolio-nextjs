@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { Button, Navbar, Text, useSSR } from "@nextui-org/react";
+import { Button, Navbar, Text, useSSR, useTheme } from "@nextui-org/react";
 import { useRouter } from "next/router";
 
 import { AiOutlineDownload } from "react-icons/ai";
@@ -23,7 +23,22 @@ export const NavbarApp = () => {
   if (!isBrowser) return null;
 
   return (
-    <Navbar variant={"sticky"} shouldHideOnScroll>
+    <Navbar
+      variant={"sticky"}
+      shouldHideOnScroll
+      disableShadow
+      css={{
+        position: "fixed",
+      }}
+      containerCss={{
+        borderRadius: "20px",
+        marginTop: "1rem",
+        "@lgMax": {
+          marginLeft: "1rem",
+          marginRight: "1rem",
+        },
+      }}
+    >
       <NavBrand />
       <NavContent />
       <NavActions />
@@ -58,7 +73,9 @@ const NavBrand = () => {
           b
           color="inherit"
           hideIn="xs"
-          className="animate__animated animate__fadeIn"
+          className={
+            router.asPath == "/" ? "animate__animated animate__fadeIn" : ""
+          }
         >
           Franzua Plasencia
         </Text>
@@ -108,19 +125,15 @@ const NavContent = () => {
 };
 
 const NavActions = () => {
+  const { theme } = useTheme();
+  const { asPath } = useRouter();
+
   return (
     <Navbar.Content>
       {navigationSocialLinks.map((link) => (
         <Navbar.Item
           key={link.title}
-          css={{
-            "&:hover": {
-              borderRadius: "50%",
-              backgroundColor: "$secondary",
-              color: "white",
-            },
-            padding: "0.5rem",
-          }}
+          className={asPath == "/" ? "animate__animated animate__fadeIn" : ""}
         >
           <Navbar.Link href={link.href} target="_blank" as={Link}>
             <link.icon cursor={"pointer"} />
@@ -129,7 +142,15 @@ const NavActions = () => {
       ))}
 
       <Navbar.Link href={CV_URL} target="_blank" as={Link}>
-        <Button size={"sm"} color="secondary" animated>
+        <Button
+          size={"sm"}
+          color={"primary"}
+          animated
+          //! Use this way because the theme is not working with tailwind
+          style={{
+            backgroundColor: theme?.colors.secondary.value,
+          }}
+        >
           <div>Download &nbsp;</div>
           CV &nbsp; <AiOutlineDownload />
         </Button>

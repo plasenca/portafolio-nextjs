@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import { NavbarApp } from "@/components/ui";
+import { Hero, MainLayout } from "@/components/ui";
 
 export default function Home() {
   return (
@@ -8,7 +8,11 @@ export default function Home() {
       <Head>
         <title>Home | Franzua Plasencia</title>
       </Head>
-      <NavbarApp />
+      <Hero />
     </>
   );
 }
+
+Home.getLayout = function getLayout(page: JSX.Element) {
+  return <MainLayout>{page}</MainLayout>;
+};
