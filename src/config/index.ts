@@ -1,2 +1,2 @@
-export * from "./uiConfig/navigation/navigationLinks";
+export * from "./uiConfig";
 

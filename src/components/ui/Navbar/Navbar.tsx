@@ -4,11 +4,9 @@ import Link from "next/link";
 import { Button, Navbar, Text, useSSR } from "@nextui-org/react";
 import { useRouter } from "next/router";
 
-import { AiFillLinkedin, AiOutlineDownload } from "react-icons/ai";
-import { BsTwitter } from "react-icons/bs";
-import { GoMarkGithub } from "react-icons/go";
+import { AiOutlineDownload } from "react-icons/ai";
 
-import { navigationLinks } from "@/config";
+import { navigationLinks, navigationSocialLinks } from "@/config";
 import { LinkNav } from "./LinkNav";
 
 //* Constants
@@ -112,15 +110,23 @@ const NavContent = () => {
 const NavActions = () => {
   return (
     <Navbar.Content>
-      <Navbar.Item>
-        <GoMarkGithub size={20} cursor={"pointer"} />
-      </Navbar.Item>
-      <Navbar.Item>
-        <BsTwitter cursor={"pointer"} />
-      </Navbar.Item>
-      <Navbar.Item>
-        <AiFillLinkedin cursor={"pointer"} />
-      </Navbar.Item>
+      {navigationSocialLinks.map((link) => (
+        <Navbar.Item
+          key={link.title}
+          css={{
+            "&:hover": {
+              borderRadius: "50%",
+              backgroundColor: "$secondary",
+              color: "white",
+            },
+            padding: "0.5rem",
+          }}
+        >
+          <Navbar.Link href={link.href} target="_blank" as={Link}>
+            <link.icon cursor={"pointer"} />
+          </Navbar.Link>
+        </Navbar.Item>
+      ))}
 
       <Navbar.Link href={CV_URL} target="_blank" as={Link}>
         <Button size={"sm"} color="secondary" animated>
