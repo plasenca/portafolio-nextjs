@@ -46,7 +46,9 @@ export const Hero = () => {
             <BsFillArrowRightCircleFill size={22} />
           </Link>
         </div>
-        <div className={styles["hero-astro"]} />
+        <div
+          className={`${styles["hero-astro"]} animate__animated animate__fadeInUp animate__slow`}
+        />
       </div>
       <div className={`${styles["hero-background"]}`} />
     </section>

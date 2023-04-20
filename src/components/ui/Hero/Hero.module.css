@@ -16,6 +16,7 @@
   filter: opacity(0.5);
   background-position: center;
   transition: transform 0.2s ease-out;
+  box-shadow: 0px 8px 100px rgba(0, 0, 0, 0.2);
 }
 
 .hero-astro {
