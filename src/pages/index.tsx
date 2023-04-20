@@ -8,7 +8,10 @@ export default function Home() {
       <Head>
         <title>Home | Franzua Plasencia</title>
       </Head>
-      <Hero />
+      {/* Center total content */}
+      <div className="container mx-auto max-w-full">
+        <Hero />
+      </div>
     </>
   );
 }

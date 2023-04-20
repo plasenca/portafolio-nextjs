@@ -10,13 +10,15 @@ export const Hero = () => {
   const { theme } = useTheme();
 
   return (
-    <section
-      className={`container max-w-full px-28 2xl:px-64 md:py-60 ${styles.hero}`}
-    >
+    <section className={`px-28 2xl:px-64 md:py-60 ${styles.hero}`}>
+      <div className={`${styles["hero-background"]}`} />
       <div className="grid grid-cols-2 gap-4">
         <div className="flex flex-col items-start">
           <h1 className="text-4xl lg:text-6xl font-bold">
-            Hi! I{"'"}m Franzua Plasencia
+            Hi! I{"'"}m{" "}
+            <span style={{ color: theme?.colors.yellow700.value }}>
+              Franzua Plasencia
+            </span>
           </h1>
           <p className="text-2xl pt-7 lg:text-3xl">
             Full-Stack Developer with{" "}
@@ -50,7 +52,6 @@ export const Hero = () => {
           className={`${styles["hero-astro"]} animate__animated animate__fadeInUp animate__slow`}
         />
       </div>
-      <div className={`${styles["hero-background"]}`} />
     </section>
   );
 };
