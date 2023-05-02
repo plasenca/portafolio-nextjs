@@ -10,9 +10,9 @@ export const Hero = () => {
   const { theme } = useTheme();
 
   return (
-    <section className={`px-28 2xl:px-64 md:py-60 ${styles.hero}`}>
+    <section className={`py-60 px-28 2xl:px-64 ${styles.hero}`}>
       <div className={`${styles["hero-background"]}`} />
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid md:grid-cols-2 md:gap-4">
         <div className="flex flex-col items-start">
           <h1 className="text-4xl lg:text-6xl font-bold">
             Hi! I{"'"}m{" "}
@@ -49,7 +49,7 @@ export const Hero = () => {
           </Link>
         </div>
         <div
-          className={`${styles["hero-astro"]} animate__animated animate__fadeInUp animate__slow`}
+          className={`sm:hidden md:block ${styles["hero-astro"]} animate__animated animate__fadeInUp animate__slow`}
         />
       </div>
     </section>
