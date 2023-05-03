@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import { Hero, MainLayout } from "@/components/ui";
+import { Hero, MainLayout, Tecnologies } from "@/components/ui";
 
 export default function Home() {
   return (
@@ -9,9 +9,13 @@ export default function Home() {
         <title>Home | Franzua Plasencia</title>
       </Head>
       {/* Content */}
-      <>
-        <Hero />
-      </>
+      <Hero />
+      <main>
+        {/* Tecnologies */}
+        <Tecnologies />
+        {/* Projects */}
+      </main>
+      {/* Contact Me */}
     </>
   );
 }

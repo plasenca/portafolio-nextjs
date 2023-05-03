@@ -7,9 +7,7 @@ export const MainLayout: FC<PropsWithChildren> = ({ children }) => {
   return (
     <>
       <NavbarApp />
-      <div
-        className={`${styles["background-gradient-radius"]} container mx-auto max-w-full`}
-      >
+      <div className={`${styles["background-gradient-radius"]}`}>
         {children}
       </div>
     </>
