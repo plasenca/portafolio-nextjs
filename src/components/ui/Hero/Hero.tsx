@@ -3,6 +3,7 @@ import NextLink from "next/link";
 import { Link, useTheme } from "@nextui-org/react";
 
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import { TypeAnimation } from "react-type-animation";
 
 import styles from "./Hero.module.css";
 
@@ -10,15 +11,29 @@ export const Hero = () => {
   const { theme } = useTheme();
 
   return (
-    <section className={`py-60 px-28 2xl:px-64 ${styles.hero}`}>
+    <section className={`py-60 px-24 2xl:px-60 ${styles.hero}`}>
       <div className={`${styles["hero-background"]}`} />
       <div className="grid md:grid-cols-2 md:gap-4">
         <div className="flex flex-col items-start">
-          <h1 className="text-4xl lg:text-6xl font-bold">
+          <h1
+            className={`text-4xl lg:text-6xl font-bold flex flex-col items-start`}
+          >
             Hi! I{"'"}m{" "}
-            <span style={{ color: theme?.colors.yellow700.value }}>
-              Franzua Plasencia
-            </span>
+            <TypeAnimation
+              sequence={[
+                "Franzua Plasencia",
+                1500,
+                "Full-Stack Developer",
+                1500,
+              ]}
+              wrapper="span"
+              cursor
+              repeat={Infinity}
+              style={{
+                color: theme?.colors.yellow600.value,
+                whiteSpace: "nowrap",
+              }}
+            />
           </h1>
           <p className="text-2xl pt-7 lg:text-3xl">
             Full-Stack Developer with{" "}
