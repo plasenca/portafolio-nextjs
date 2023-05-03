@@ -11,7 +11,7 @@ export const Hero = () => {
   const { theme } = useTheme();
 
   return (
-    <section className={`py-60 px-24 2xl:px-60 ${styles.hero}`}>
+    <section className={`py-60 px-24 2xl:px-60 w-screen`}>
       <div className={`${styles["hero-background"]}`} />
       <div className="grid md:grid-cols-2 md:gap-4">
         <div className="flex flex-col items-start">
