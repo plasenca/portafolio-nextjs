@@ -50,6 +50,7 @@ export const Hero = () => {
             href="/#contact"
             as={NextLink}
             animated={false}
+            className="animate__animated animate__fadeInLeft animate__slow"
             css={{
               marginTop: "2rem",
               color: theme?.colors.success.value,
