@@ -5,10 +5,13 @@ import { Link, useTheme } from "@nextui-org/react";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import { TypeAnimation } from "react-type-animation";
 
+import { useState } from "react";
 import styles from "./Hero.module.css";
 
 export const Hero = () => {
   const { theme } = useTheme();
+
+  const [isAstroLoad, setIsAstroLoad] = useState(false);
 
   return (
     <section className={`container mx-auto py-60 2xl:px-60 px-10 sm:px-24`}>

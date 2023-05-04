@@ -1,6 +1,8 @@
+import { IconType } from "react-icons/lib";
+
 export interface IExpertise {
   name: string;
   description: string;
   projectsUrl: string;
-  color?: string;
+  tools: IconType[];
 }

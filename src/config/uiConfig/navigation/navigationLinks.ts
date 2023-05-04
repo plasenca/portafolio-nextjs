@@ -11,9 +11,9 @@ export const navigationLinks: NavigationLink[] = [
     urlname: "/",
   },
   {
-    title: "Tecnologies",
-    href: "/#tecnologies",
-    urlname: "/#tecnologies",
+    title: "Expertise",
+    href: "/#expertise",
+    urlname: "/#expertise",
   },
   {
     title: "Projects",
