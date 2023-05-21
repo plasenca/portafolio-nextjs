@@ -151,7 +151,7 @@ const NavActions = () => {
             backgroundColor: theme?.colors.secondary.value,
           }}
         >
-          <div>Download &nbsp;</div>
+          <div className="hidden lg:block">Download &nbsp;</div>
           CV &nbsp; <AiOutlineDownload />
         </Button>
       </Navbar.Link>

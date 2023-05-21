@@ -17,13 +17,13 @@ export const navigationLinks: NavigationLink[] = [
   },
   {
     title: "Projects",
-    href: "/projects",
-    urlname: "/projects",
+    href: "/#projects",
+    urlname: "/#projects",
   },
   {
     title: "About",
-    href: "/about",
-    urlname: "/about",
+    href: "/#about",
+    urlname: "/#about",
   },
   {
     // TODO: Crear un blog para el enlace
