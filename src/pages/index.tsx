@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Home | Franzua Plasencia</title>
+        <title>Home | Franzua zua zua</title>
       </Head>
       {/* Content */}
       <Hero />
