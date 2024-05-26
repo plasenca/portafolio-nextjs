@@ -1,9 +1,7 @@
-
 import { BsTwitter } from "react-icons/bs";
 import { GoMarkGithub } from "react-icons/go";
 
 import { AiFillLinkedin } from "react-icons/ai";
-
 
 export const navigationSocialLinks = [
   {
@@ -18,7 +16,7 @@ export const navigationSocialLinks = [
   },
   {
     title: "Linkedin",
-    href: "https://www.linkedin.com/in/franzuapl/",
+    href: "https://www.linkedin.com/in/plasenca/",
     icon: AiFillLinkedin,
   },
 ];
