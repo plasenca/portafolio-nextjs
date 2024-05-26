@@ -1,7 +1,13 @@
 import NextLink from "next/link";
 
-import { Button, Card, Link } from "@nextui-org/react";
-
+import {
+  Button,
+  Card,
+  CardBody,
+  CardFooter,
+  CardHeader,
+  Link,
+} from "@nextui-org/react";
 import { FaPython, FaReact } from "react-icons/fa";
 import { IconType } from "react-icons/lib";
 import {
@@ -16,7 +22,7 @@ import {
   SiTypescript,
 } from "react-icons/si";
 
-import { IExpertise } from "@/entities";
+import { IExpertise } from "@/core/interfaces";
 
 const listExpertise: IExpertise[] = [
   {
@@ -66,26 +72,15 @@ const CardTecnology: React.FC<IExpertise> = ({
   return (
     <Card
       isHoverable
-      css={{
-        borderColor: "transparent",
-        backdropFilter: "blur(10px)",
-        backgroundColor: "rgba(255, 255, 255, 0.2)",
-        boxShadow: "0 15px 25px rgba(129, 124, 124, 0.15)",
-      }}
+      className="border-transparent backdrop-blur-md bg-opacity-20 shadow-lg"
     >
-      <Card.Header>
+      <CardHeader>
         <p className="font-semibold text-xl">{name}</p>
-      </Card.Header>
-      <Card.Body>
+      </CardHeader>
+      <CardBody>
         <p className="text-base">{description}</p>
-      </Card.Body>
-      <Card.Footer
-        css={{
-          borderTop: "$borderWeights$light solid rgba(255, 255, 255, 0.1)",
-          bottom: 0,
-          zIndex: 1,
-        }}
-      >
+      </CardBody>
+      <CardFooter className="bg-opacity-20 z-10 bottom-0">
         <div className="container grid grid-cols-2">
           <div className="flex items-center">
             {tools.map((Tool: IconType) => (
@@ -93,10 +88,9 @@ const CardTecnology: React.FC<IExpertise> = ({
             ))}
           </div>
           <div className="flex justify-end">
-            <Button flat auto rounded color={"secondary"}>
+            <Button color={"secondary"} variant="flat" className="rounded">
               <Link
-                className="text-sm"
-                color={"inherit"}
+                className="text-sm text-inherit"
                 as={NextLink}
                 href={projectsUrl}
               >
@@ -105,7 +99,7 @@ const CardTecnology: React.FC<IExpertise> = ({
             </Button>
           </div>
         </div>
-      </Card.Footer>
+      </CardFooter>
     </Card>
   );
 };

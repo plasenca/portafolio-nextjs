@@ -1,7 +1,7 @@
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 
 import { Navbar } from "@nextui-org/react";
-import { useRouter } from "next/router";
 
 interface Props {
   href: string;
@@ -10,16 +10,17 @@ interface Props {
   isCollapse?: boolean;
 }
 
-export const LinkNav: React.FC<Props> = ({
+export const NavBarItem: React.FC<Props> = ({
   title,
   href,
   urlname,
   isCollapse = false,
 }) => {
-  const { asPath } = useRouter();
+  const router = useRouter();
+  const pathName = usePathname();
   return (
     <Navbar.Link
-      isActive={asPath == urlname}
+      isActive={pathName == urlname}
       variant={isCollapse ? "underline" : "highlight"}
       href={href}
       as={Link}

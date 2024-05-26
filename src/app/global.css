@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .background-gradient-radius {
   background: radial-gradient(
     70% 70% at 30% 60%,

@@ -1,2 +1,1 @@
-export * from "./uiConfig";
-
+export * from "./ui-config";

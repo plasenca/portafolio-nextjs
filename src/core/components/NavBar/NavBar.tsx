@@ -1,43 +1,33 @@
 import Image from "next/image";
-import Link from "next/link";
 
-import { Button, Navbar, Text, useSSR, useTheme } from "@nextui-org/react";
-import { useRouter } from "next/router";
+import { navigationLinks } from "@/config/ui-config/navigation/navigation-links";
+import {
+  Button,
+  Link,
+  Navbar,
+  NavbarBrand,
+  NavbarMenuToggle,
+} from "@nextui-org/react";
+import { useRouter } from "next/navigation";
 
+import { navigationSocialLinks } from "@/config/ui-config/navigation/navigation-social";
+import clsx from "clsx";
+import { usePathname } from "next/navigation";
 import { AiOutlineDownload } from "react-icons/ai";
-
-import { navigationLinks, navigationSocialLinks } from "@/config";
-import { LinkNav } from "./LinkNav";
-
-//* Constants
+import { NavBarItem } from "./NavBarItem";
 
 const CV_URL =
   "https://drive.google.com/file/d/1rcRGmlSABk2yvCuphu89V40s3-LCQzpv/view?usp=sharing";
 
-export const NavbarApp = () => {
+export const NavBarApp = () => {
   // const { isDark } = useTheme();
   const router = useRouter();
 
-  //* Check if is in the browser
-  const { isBrowser } = useSSR();
-  if (!isBrowser) return null;
-
   return (
     <Navbar
-      variant={"sticky"}
+      position={"sticky"}
+      className="fixed rounded-3xl mt-4 lg:ml-4 lg:mr-4"
       shouldHideOnScroll
-      disableShadow
-      css={{
-        position: "fixed",
-      }}
-      containerCss={{
-        borderRadius: "20px",
-        marginTop: "1rem",
-        "@lgMax": {
-          marginLeft: "1rem",
-          marginRight: "1rem",
-        },
-      }}
     >
       <NavBrand />
       <NavContent />
@@ -48,38 +38,39 @@ export const NavbarApp = () => {
 
 const NavBrand = () => {
   const router = useRouter();
+  const pathName = usePathname();
 
   return (
     <>
-      <Navbar.Brand
+      <NavbarBrand
         style={{
           cursor: "pointer",
         }}
         onClick={() => router.push("/")}
       >
-        <Navbar.Toggle
+        <NavbarMenuToggle
           aria-label="toggle navigation"
-          showIn={"sm"}
-          className="animate__animated animate__fadeIn"
+          className={clsx(
+            "hidden sm:display",
+            "animate__animated animate__fadeIn"
+          )}
         />
         <Image
-          alt="Logo de Franzua Plasencia"
+          alt="Franzua Plasencia"
           src={`/static/logo.png`}
           width="50"
           height="50"
           priority
         />
-        <Text
-          b
+        <p
           color="inherit"
-          hideIn="xs"
           className={
-            router.asPath == "/" ? "animate__animated animate__fadeIn" : ""
+            pathName === "/" ? "animate__animated animate__fadeIn" : ""
           }
         >
           Franzua Plasencia
-        </Text>
-      </Navbar.Brand>
+        </p>
+      </NavbarBrand>
       <Navbar.Collapse>
         {navigationLinks.map((link, index) => (
           <Navbar.CollapseItem
@@ -113,7 +104,7 @@ const NavContent = () => {
       variant={"default"}
     >
       {navigationLinks.map((link) => (
-        <LinkNav
+        <NavBarItem
           key={link.title}
           href={link.href}
           title={link.title}
@@ -126,14 +117,14 @@ const NavContent = () => {
 
 const NavActions = () => {
   const { theme } = useTheme();
-  const { asPath } = useRouter();
+  const pathName = usePathname();
 
   return (
     <Navbar.Content>
       {navigationSocialLinks.map((link) => (
         <Navbar.Item
           key={link.title}
-          className={asPath == "/" ? "animate__animated animate__fadeIn" : ""}
+          className={pathName == "/" ? "animate__animated animate__fadeIn" : ""}
         >
           <Navbar.Link href={link.href} target="_blank" as={Link}>
             <link.icon cursor={"pointer"} />
