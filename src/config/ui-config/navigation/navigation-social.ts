@@ -1,5 +1,5 @@
 import { BsTwitter } from "react-icons/bs";
-import { GoMarkGithub } from "react-icons/go";
+import { IoLogoGithub } from "react-icons/io";
 
 import { AiFillLinkedin } from "react-icons/ai";
 
@@ -12,7 +12,7 @@ export const navigationSocialLinks = [
   {
     title: "Github",
     href: "https://github.com/plasenca",
-    icon: GoMarkGithub,
+    icon: IoLogoGithub,
   },
   {
     title: "Linkedin",

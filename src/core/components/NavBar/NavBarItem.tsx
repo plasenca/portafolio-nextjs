@@ -1,32 +1,26 @@
-import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+"use client";
 
-import { Navbar } from "@nextui-org/react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+import { NavbarItem } from "@nextui-org/react";
 
 interface Props {
   href: string;
   title: string;
   urlname: string;
-  isCollapse?: boolean;
 }
 
-export const NavBarItem: React.FC<Props> = ({
-  title,
-  href,
-  urlname,
-  isCollapse = false,
-}) => {
-  const router = useRouter();
+export const NavBarItem: React.FC<Props> = ({ title, href, urlname }) => {
   const pathName = usePathname();
   return (
-    <Navbar.Link
+    <NavbarItem
       isActive={pathName == urlname}
-      variant={isCollapse ? "underline" : "highlight"}
       href={href}
       as={Link}
       className="animate__animated animate__fadeIn"
     >
       {title}
-    </Navbar.Link>
+    </NavbarItem>
   );
 };
